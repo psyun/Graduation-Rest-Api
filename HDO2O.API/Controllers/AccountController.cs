@@ -322,7 +322,7 @@ namespace HDO2O.API.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        public async Task<IHttpActionResult> Register([FromBody] RegisterBindingModel model)
         {
             if (!ModelState.IsValid)
             {
