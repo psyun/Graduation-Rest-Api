@@ -1,0 +1,10 @@
+#mac os x
+.DS_Store
+
+#visual studio and C#
+.vs/
+bin/
+obj
+packages/
+*.suo
+*.csproj.user
