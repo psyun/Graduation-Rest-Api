@@ -5,14 +5,14 @@ namespace HDO2O.Models.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HDO2O.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<HDO2O.Models.HDDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HDO2O.Models.ApplicationDbContext context)
+        protected override void Seed(HDO2O.Models.HDDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
