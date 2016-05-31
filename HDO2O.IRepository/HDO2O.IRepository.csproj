@@ -40,7 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBarbershopRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HDO2O.Infranstructure\HDO2O.Infranstructure.csproj">
+      <Project>{327b5dbf-6cbe-44ed-b191-7696e06431b7}</Project>
+      <Name>HDO2O.Infranstructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDO2O.Models\HDO2O.Models.csproj">
+      <Project>{537c800f-4931-4eed-95a6-4acd2285040f}</Project>
+      <Name>HDO2O.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

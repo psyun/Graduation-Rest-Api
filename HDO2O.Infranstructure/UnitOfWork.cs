@@ -9,16 +9,16 @@ namespace HDO2O.Infranstructure
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private ApplicationDbContext _dbContext;
-        private readonly IDbContextFactory<ApplicationDbContext> _dbContextFactory;
-        protected ApplicationDbContext DbContext
+        private HDDbContext _dbContext;
+        private readonly IDbContextFactory<HDDbContext> _dbContextFactory;
+        protected HDDbContext DbContext
         {
             get
             {
                 return _dbContext ?? (_dbContext = _dbContextFactory.GetContext());
             }
         }
-        public UnitOfWork(IDbContextFactory<ApplicationDbContext> dbContextFactory)
+        public UnitOfWork(IDbContextFactory<HDDbContext> dbContextFactory)
         {
             _dbContextFactory = dbContextFactory;
         }

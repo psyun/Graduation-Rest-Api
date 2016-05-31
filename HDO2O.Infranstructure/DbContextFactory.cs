@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace HDO2O.Infranstructure
 {
-    public class DbContextFactory : IDbContextFactory<ApplicationDbContext>
+    public class DbContextFactory : IDbContextFactory<HDDbContext>
     {
-        private ApplicationDbContext _dbContext;
-        public ApplicationDbContext GetContext()
+        private HDDbContext _dbContext;
+        public HDDbContext GetContext()
         {
-            return _dbContext ?? (_dbContext = new ApplicationDbContext());
+            return _dbContext ?? (_dbContext = new HDDbContext());
         }
         public void Dispose()
         {

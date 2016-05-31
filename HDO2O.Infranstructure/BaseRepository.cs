@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace HDO2O.Infranstructure
 {
     public abstract class BaseRepository<TEntity, TContext> : IDisposable
-        where TEntity : class, new()           //必须拥有一个构造函数
+        where TEntity : class, new()
         where TContext : DbContext
     {
         protected readonly IDbSet<TEntity> _dbSet;

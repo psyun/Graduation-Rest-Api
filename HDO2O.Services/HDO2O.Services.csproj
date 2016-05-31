@@ -40,7 +40,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarbershopService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HDO2O.DTO\HDO2O.DTO.csproj">
+      <Project>{f99e5876-ce5f-4e17-bf72-d2bda1c0a708}</Project>
+      <Name>HDO2O.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDO2O.Infranstructure\HDO2O.Infranstructure.csproj">
+      <Project>{327b5dbf-6cbe-44ed-b191-7696e06431b7}</Project>
+      <Name>HDO2O.Infranstructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDO2O.IRepository\HDO2O.IRepository.csproj">
+      <Project>{c76bb480-3231-4f84-a3bb-be9fdea50a00}</Project>
+      <Name>HDO2O.IRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDO2O.IServices\HDO2O.IServices.csproj">
+      <Project>{204d1256-cf8b-496e-a6db-80ede318c183}</Project>
+      <Name>HDO2O.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDO2O.Models\HDO2O.Models.csproj">
+      <Project>{537c800f-4931-4eed-95a6-4acd2285040f}</Project>
+      <Name>HDO2O.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDO2O.Repository\HDO2O.Repository.csproj">
+      <Project>{da611f80-d801-4cf4-9ff2-35d2188d9327}</Project>
+      <Name>HDO2O.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

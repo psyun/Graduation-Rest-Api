@@ -10,9 +10,13 @@ namespace HDO2O.API.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public object Get()
         {
-            return new string[] { "value1", "value2" };
+            return new
+            {
+                name = 123,
+                password = "123456"
+            };
         }
 
         // GET api/values/5

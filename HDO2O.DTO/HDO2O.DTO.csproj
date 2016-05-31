@@ -41,7 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDTO.cs" />
+    <Compile Include="BarbershopDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HDO2O.Models\HDO2O.Models.csproj">
+      <Project>{537c800f-4931-4eed-95a6-4acd2285040f}</Project>
+      <Name>HDO2O.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

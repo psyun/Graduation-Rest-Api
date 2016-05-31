@@ -21,7 +21,10 @@ namespace HDO2O.DTO
         {
 
         }
-
+        public virtual void FromEntity(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
         public virtual TEntity ToEntity()
         {
             throw new NotImplementedException();
