@@ -1,7 +1,11 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
 using HDO2O.Infranstructure;
+using HDO2O.IRepository;
+using HDO2O.IServices;
 using HDO2O.Models;
+using HDO2O.Repository;
+using HDO2O.Services;
 using System.Reflection;
 using System.Web.Http;
 
@@ -27,12 +31,13 @@ namespace HDO2O.API.App_Start
             var config = GlobalConfiguration.Configuration;
 
             //register infranstructure
-            builder.RegisterType<DbContextFactory>().As<IDbContextFactory<ApplicationDbContext>>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<DbContextFactory>().As<IDbContextFactory<HDDbContext>>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().AsImplementedInterfaces().InstancePerRequest();
 
 
             #region register service and repository
-
+            builder.RegisterType<BarbershopRepository>().As<IBarbershopRepository>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<BarbershopService>().As<IBarbershopService>().AsImplementedInterfaces().InstancePerRequest();
             #endregion
 
 
