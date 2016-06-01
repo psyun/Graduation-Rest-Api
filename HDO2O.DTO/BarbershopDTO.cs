@@ -10,12 +10,17 @@ namespace HDO2O.DTO
     public class BarbershopDTO : BaseDTO<Barbershop>
     {
         public string BusinessLicense { get; set; }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public double Lat { get; set; }
         public double Lng { get; set; }
         public string LocationTitle { get; set; }
         public string Name { get; set; }
+        public string OwnerHairDresserId { get; set; }
 
+        public BarbershopDTO()
+        {
+
+        }
         public BarbershopDTO(Barbershop entity)
             : base(entity)
         {
