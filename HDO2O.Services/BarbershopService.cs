@@ -15,40 +15,108 @@ namespace HDO2O.Services
     {
         private IUnitOfWork _unitOfWork;
         private IBarbershopRepository _repoBarbershop;
-        public BarbershopService(IUnitOfWork unitOfWork, IBarbershopRepository repoBarbershop)
+        private IHairDresserRepository _repoHairDresser;
+        private IBarbershopHairDresserRespository _repoBarbershopHairDresser;
+
+        public BarbershopService(IUnitOfWork unitOfWork,
+            IBarbershopRepository repoBarbershop,
+            IHairDresserRepository repoHairDresser,
+           IBarbershopHairDresserRespository repoBarbershopHairDresser)
         {
             this._unitOfWork = unitOfWork;
             this._repoBarbershop = repoBarbershop;
+            this._repoHairDresser = repoHairDresser;
+            this._repoBarbershopHairDresser = repoBarbershopHairDresser;
         }
 
-        public BarbershopDTO GetById(Guid id)
+        public ResponseResult GetById(Guid id)
         {
-            var barbershopDto = new BarbershopDTO(_repoBarbershop.GetById(id));
+            var result = new ResponseResult();
+            try
+            {
+                result.data = new BarbershopDTO(_repoBarbershop.GetById(id));
 
-            return barbershopDto;
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+                return result;
+            }
         }
 
-        public IEnumerable<BarbershopDTO> GetAll()
+        public ResponseResult GetAll()
         {
-            var barbershops = _repoBarbershop.GetAll().Select(entity => new BarbershopDTO(entity));
+            var result = new ResponseResult();
+            try
+            {
+                result.data = _repoBarbershop.GetAll()
+                    .Select(entity => new BarbershopDTO(entity));
 
-            return barbershops;
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+
+                return result;
+            }
         }
 
-        public BarbershopDTO Add(BarbershopDTO dto)
+        public ResponseResult Add(BarbershopDTO dto)
         {
-            var newBarbershopDto = new BarbershopDTO(_repoBarbershop.Add(dto.ToEntity()));
-            this.Commit();
+            var result = new ResponseResult();
+            try
+            {
+                var ownerHairDresser = _repoHairDresser.GetById(dto.OwnerHairDresserId);
+                if (ownerHairDresser != null)
+                {
+                    var entity = dto.ToEntity();
+                    var addedEntity = _repoBarbershop.Add(entity);
+                    _repoBarbershopHairDresser.Add(new BarbershopHairDresser
+                    {
+                        BarbershopId = addedEntity.Id,
+                        HairDresserId = ownerHairDresser.Id
+                    });
 
-            return newBarbershopDto;
+                    if (this.Commit() >= 0)
+                    {
+                        result.description = "增加理发店成功!";
+                    }
+                }
+                else
+                {
+                    result.description = "请检查店主的信息是否正确!";
+                    result.code = ResponseCodeEnum.INVALID_MODELSTATE;
+                }
+
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+                return result;
+            }
         }
 
-        public BarbershopDTO Update(BarbershopDTO dto)
+        public ResponseResult Update(BarbershopDTO dto)
         {
             throw new NotImplementedException();
         }
 
-        public int Delete(Guid id)
+        public ResponseResult Delete(Guid id)
         {
             throw new NotImplementedException();
         }
