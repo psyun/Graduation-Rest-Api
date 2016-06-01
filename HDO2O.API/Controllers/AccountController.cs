@@ -52,7 +52,7 @@ namespace HDO2O.API.Controllers
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
-        // GET api/Account/UserInfo
+        // GET rest/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("UserInfo")]
         public UserInfoViewModel GetUserInfo()
@@ -67,7 +67,7 @@ namespace HDO2O.API.Controllers
             };
         }
 
-        // POST api/Account/Logout
+        // POST rest/Account/Logout
         [Route("Logout")]
         public IHttpActionResult Logout()
         {
@@ -75,7 +75,7 @@ namespace HDO2O.API.Controllers
             return Ok();
         }
 
-        // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
+        // GET rest/Account/ManageInfo?returnUrl=%2F&generateState=true
         [Route("ManageInfo")]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
         {
@@ -115,7 +115,7 @@ namespace HDO2O.API.Controllers
             };
         }
 
-        // POST api/Account/ChangePassword
+        // POST rest/Account/ChangePassword
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
@@ -135,7 +135,7 @@ namespace HDO2O.API.Controllers
             return Ok();
         }
 
-        // POST api/Account/SetPassword
+        // POST rest/Account/SetPassword
         [Route("SetPassword")]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
         {
@@ -154,7 +154,7 @@ namespace HDO2O.API.Controllers
             return Ok();
         }
 
-        // POST api/Account/AddExternalLogin
+        // POST rest/Account/AddExternalLogin
         [Route("AddExternalLogin")]
         public async Task<IHttpActionResult> AddExternalLogin(AddExternalLoginBindingModel model)
         {
@@ -192,7 +192,7 @@ namespace HDO2O.API.Controllers
             return Ok();
         }
 
-        // POST api/Account/RemoveLogin
+        // POST rest/Account/RemoveLogin
         [Route("RemoveLogin")]
         public async Task<IHttpActionResult> RemoveLogin(RemoveLoginBindingModel model)
         {
@@ -221,7 +221,7 @@ namespace HDO2O.API.Controllers
             return Ok();
         }
 
-        // GET api/Account/ExternalLogin
+        // GET rest/Account/ExternalLogin
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
         [AllowAnonymous]
@@ -278,7 +278,7 @@ namespace HDO2O.API.Controllers
             return Ok();
         }
 
-        // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
+        // GET rest/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
         [Route("ExternalLogins")]
         public IEnumerable<ExternalLoginViewModel> GetExternalLogins(string returnUrl, bool generateState = false)
@@ -319,7 +319,7 @@ namespace HDO2O.API.Controllers
             return logins;
         }
 
-        // POST api/Account/Register
+        // POST rest/Account/Register
         [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register([FromBody] RegisterBindingModel model)
@@ -341,7 +341,7 @@ namespace HDO2O.API.Controllers
             return Ok();
         }
 
-        // POST api/Account/RegisterExternal
+        // POST rest/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("RegisterExternal")]
