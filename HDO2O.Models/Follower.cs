@@ -11,8 +11,9 @@ namespace HDO2O.Models
     public class Follower
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("FollowerId")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string CustomerId { get; set; }
         public string HairDresserId { get; set; }
 

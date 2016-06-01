@@ -14,9 +14,10 @@ namespace HDO2O.Models
     public class BarbershopHairDresser
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("BarbershopHairDresserId")]
-        public Guid Id { get; set; }
-        public Guid BarbershopId { get; set; }
+        public int Id { get; set; }
+        public int BarbershopId { get; set; }
         public string HairDresserId { get; set; }
         /// <summary>
         /// 理发师类型

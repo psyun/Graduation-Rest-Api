@@ -64,13 +64,9 @@
     <Compile Include="Follower.cs" />
     <Compile Include="HairDressLibrary.cs" />
     <Compile Include="MembershipCard.cs" />
-    <Compile Include="Migrations\201605301702027_InitialUser.cs" />
-    <Compile Include="Migrations\201605301702027_InitialUser.Designer.cs">
-      <DependentUpon>201605301702027_InitialUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605301730553_HairDresserLibrary.cs" />
-    <Compile Include="Migrations\201605301730553_HairDresserLibrary.Designer.cs">
-      <DependentUpon>201605301730553_HairDresserLibrary.cs</DependentUpon>
+    <Compile Include="Migrations\201606011733245_ChangeIdToInt.cs" />
+    <Compile Include="Migrations\201606011733245_ChangeIdToInt.Designer.cs">
+      <DependentUpon>201606011733245_ChangeIdToInt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="HairDresser.cs" />
@@ -85,11 +81,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605301702027_InitialUser.resx">
-      <DependentUpon>201605301702027_InitialUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605301730553_HairDresserLibrary.resx">
-      <DependentUpon>201605301730553_HairDresserLibrary.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606011733245_ChangeIdToInt.resx">
+      <DependentUpon>201606011733245_ChangeIdToInt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
