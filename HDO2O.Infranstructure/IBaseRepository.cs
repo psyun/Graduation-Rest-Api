@@ -7,6 +7,7 @@ namespace HDO2O.Infranstructure
         where TEntity : class
     {
         TEntity GetById(Guid id);
+        TEntity GetById(string id);
         TEntity GetFirst(Func<TEntity, bool> predicate);
         IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> GetMany(Func<TEntity, bool> predicate);

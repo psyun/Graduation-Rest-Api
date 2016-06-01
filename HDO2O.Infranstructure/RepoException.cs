@@ -10,10 +10,12 @@ namespace HDO2O.Infranstructure
     {
         public RepoException(ResponseCodeEnum code, string description)
         {
-            this.code = code;
-            this.description = description;
+            this.ResponseResult = new ResponseResult(code, description);
         }
-        public ResponseCodeEnum code { get; set; }
-        public string description { get; set; }
+        public RepoException(ResponseCodeEnum code, string description, object data)
+        {
+            this.ResponseResult.data = data;
+        }
+        public ResponseResult ResponseResult { get; private set; }
     }
 }

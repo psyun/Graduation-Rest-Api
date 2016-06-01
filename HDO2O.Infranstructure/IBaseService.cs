@@ -9,11 +9,11 @@ namespace HDO2O.Infranstructure
     public interface IBaseService<TDTO>
         where TDTO : class
     {
-        TDTO GetById(Guid id);
-        IEnumerable<TDTO> GetAll();
-        TDTO Add(TDTO dto);
-        TDTO Update(TDTO dto);
-        int Delete(Guid id);
+        ResponseResult GetById(Guid id);
+        ResponseResult GetAll();
+        ResponseResult Add(TDTO dto);
+        ResponseResult Update(TDTO dto);
+        ResponseResult Delete(Guid id);
         int Commit();
     }
 }

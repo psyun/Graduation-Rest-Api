@@ -1,5 +1,7 @@
 ﻿public enum ResponseCodeEnum
 {
-    SERVER_ERROR = 10001,
-    INVALID_MODELSTATE = 10002,
+    SUCCESS = 10001,
+
+    SERVER_ERROR = 10002,
+    INVALID_MODELSTATE = 10003,
 }
