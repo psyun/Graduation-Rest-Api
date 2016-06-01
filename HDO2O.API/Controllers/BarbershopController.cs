@@ -25,7 +25,7 @@ namespace HDO2O.API.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("add")]
-        public IHttpActionResult AddBabershop(BarbershopDTO barbershop)
+        public IHttpActionResult AddBabershop([FromBody] BarbershopDTO barbershop)
         {
             return Ok(_servBabershop.Add(barbershop));
         }
