@@ -14,10 +14,11 @@ namespace HDO2O.Models
     public class MyHairDressLibrary
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("MyHairDressLibraryId")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string HairDresserId { get; set; }
-        public Guid HairDressLibraryId { get; set; }
+        public int HairDressLibraryId { get; set; }
         /// <summary>
         /// 所属类型
         /// 1 该发型师是该发型的创建人

@@ -8,8 +8,9 @@ namespace HDO2O.Models
     public class Barbershop
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("BarbershopId")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 理发店名称
         /// </summary>

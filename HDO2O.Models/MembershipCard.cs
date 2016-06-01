@@ -11,10 +11,11 @@ namespace HDO2O.Models
     public class MembershipCard
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("MembershipCardId")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string CustomerId { get; set; }
-        public Guid BarbershopId { get; set; }
+        public int BarbershopId { get; set; }
 
         public virtual Barbershop Barbershop { get; set; }
         public virtual Customer Customer { get; set; }

@@ -7,13 +7,13 @@ namespace HDO2O.Models.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class HairDresserLibrary : IMigrationMetadata
+    public sealed partial class ChangeIdToInt : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(HairDresserLibrary));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeIdToInt));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605301730553_HairDresserLibrary"; }
+            get { return "201606011733245_ChangeIdToInt"; }
         }
         
         string IMigrationMetadata.Source

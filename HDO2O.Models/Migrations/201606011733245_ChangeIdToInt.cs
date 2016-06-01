@@ -3,7 +3,7 @@ namespace HDO2O.Models.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialUser : DbMigration
+    public partial class ChangeIdToInt : DbMigration
     {
         public override void Up()
         {
@@ -11,8 +11,8 @@ namespace HDO2O.Models.Migrations
                 "dbo.BarbershopHairDressers",
                 c => new
                     {
-                        BarbershopHairDresserId = c.Guid(nullable: false),
-                        BarbershopId = c.Guid(nullable: false),
+                        BarbershopHairDresserId = c.Int(nullable: false, identity: true),
+                        BarbershopId = c.Int(nullable: false),
                         HairDresserId = c.String(maxLength: 128),
                         Type = c.Int(nullable: false),
                     })
@@ -26,7 +26,7 @@ namespace HDO2O.Models.Migrations
                 "dbo.Barbershops",
                 c => new
                     {
-                        BarbershopId = c.Guid(nullable: false),
+                        BarbershopId = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Lat = c.Double(nullable: false),
                         Lng = c.Double(nullable: false),
@@ -39,9 +39,9 @@ namespace HDO2O.Models.Migrations
                 "dbo.MembershipCards",
                 c => new
                     {
-                        MembershipCardId = c.Guid(nullable: false),
+                        MembershipCardId = c.Int(nullable: false, identity: true),
                         CustomerId = c.String(maxLength: 128),
-                        BarbershopId = c.Guid(nullable: false),
+                        BarbershopId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.MembershipCardId)
                 .ForeignKey("dbo.Barbershops", t => t.BarbershopId, cascadeDelete: true)
@@ -91,7 +91,7 @@ namespace HDO2O.Models.Migrations
                 "dbo.Followers",
                 c => new
                     {
-                        FollowerId = c.Guid(nullable: false),
+                        FollowerId = c.Int(nullable: false, identity: true),
                         CustomerId = c.String(maxLength: 128),
                         HairDresserId = c.String(maxLength: 128),
                     })
@@ -140,6 +140,34 @@ namespace HDO2O.Models.Migrations
                 .Index(t => t.Customer_Id);
             
             CreateTable(
+                "dbo.MyHairDressLibraries",
+                c => new
+                    {
+                        MyHairDressLibraryId = c.Int(nullable: false, identity: true),
+                        HairDresserId = c.String(maxLength: 128),
+                        HairDressLibraryId = c.Int(nullable: false),
+                        ForkType = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.MyHairDressLibraryId)
+                .ForeignKey("dbo.AspNetUsers", t => t.HairDresserId)
+                .ForeignKey("dbo.HairDressLibraries", t => t.HairDressLibraryId, cascadeDelete: true)
+                .Index(t => t.HairDresserId)
+                .Index(t => t.HairDressLibraryId);
+            
+            CreateTable(
+                "dbo.HairDressLibraries",
+                c => new
+                    {
+                        HairDressLibraryId = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Description = c.String(),
+                        ThumbnailImage = c.String(),
+                        Image = c.String(),
+                    })
+                .PrimaryKey(t => t.HairDressLibraryId);
+            
+            CreateTable(
                 "dbo.AspNetUserRoles",
                 c => new
                     {
@@ -174,6 +202,8 @@ namespace HDO2O.Models.Migrations
             DropForeignKey("dbo.MembershipCards", "CustomerId", "dbo.Customers");
             DropForeignKey("dbo.AspNetUserLogins", "Customer_Id", "dbo.Customers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.MyHairDressLibraries", "HairDressLibraryId", "dbo.HairDressLibraries");
+            DropForeignKey("dbo.MyHairDressLibraries", "HairDresserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Followers", "HairDresserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -186,6 +216,8 @@ namespace HDO2O.Models.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "Customer_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.MyHairDressLibraries", new[] { "HairDressLibraryId" });
+            DropIndex("dbo.MyHairDressLibraries", new[] { "HairDresserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "Customer_Id" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
@@ -199,6 +231,8 @@ namespace HDO2O.Models.Migrations
             DropIndex("dbo.BarbershopHairDressers", new[] { "BarbershopId" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.HairDressLibraries");
+            DropTable("dbo.MyHairDressLibraries");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Followers");
