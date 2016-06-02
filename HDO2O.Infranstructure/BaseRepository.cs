@@ -28,6 +28,15 @@ namespace HDO2O.Infranstructure
             }
             return result;
         }
+        public virtual TEntity GetById(int id)
+        {
+            var result = _dbSet.Find(id);
+            if (result == null)
+            {
+                //TODO:throw not found exception
+            }
+            return result;
+        }
         public virtual TEntity GetById(string id)
         {
             var result = _dbSet.Find(id);

@@ -10,10 +10,13 @@ namespace HDO2O.Infranstructure
         where TDTO : class
     {
         ResponseResult GetById(Guid id);
+        ResponseResult GetById(string id);
+        ResponseResult GetById(int id);
         ResponseResult GetAll();
         ResponseResult Add(TDTO dto);
         ResponseResult Update(TDTO dto);
-        ResponseResult Delete(Guid id);
+        ResponseResult Delete(int id);
+        ResponseResult Delete(string id);
         int Commit();
     }
 }
