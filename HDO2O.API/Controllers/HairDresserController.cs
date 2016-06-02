@@ -11,8 +11,8 @@ namespace HDO2O.API.Controllers
     [RoutePrefix("rest/hairDresser")]
     public class HairDresserController : ApiController
     {
-        private IHairDresserServices _serHairDress;
-        public HairDresserController(IHairDresserServices serHairDress)
+        private IHairDresserService _serHairDress;
+        public HairDresserController(IHairDresserService serHairDress)
         {
             _serHairDress = serHairDress;
         }
