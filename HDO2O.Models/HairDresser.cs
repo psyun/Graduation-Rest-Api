@@ -43,5 +43,10 @@ namespace HDO2O.Models
         public virtual ICollection<BarbershopHairDresser> BarberShops { get; set; }
         public virtual ICollection<Follower> Followers { get; set; }
         public virtual ICollection<MyHairDressLibrary> MyHairDressLibraries { get; set; }
+
+        public string GetId()
+        {
+            return this.Id;
+        }
     }
 }

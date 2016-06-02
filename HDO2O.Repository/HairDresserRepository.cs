@@ -15,5 +15,6 @@ namespace HDO2O.Repository
             : base(dbContextFactory)
         {
         }
+
     }
 }

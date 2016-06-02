@@ -50,10 +50,10 @@ namespace HDO2O.Infranstructure
         {
             return _dbSet;
         }
-        public virtual IEnumerable<TEntity> GetMany(Func<TEntity, bool> predicate)
+        public virtual IQueryable<TEntity> GetMany(Func<TEntity, bool> predicate)
         {
             var result = _dbSet.Where(predicate);
-            return result;
+            return result.AsQueryable();
         }
         public virtual ResultSet<TEntity> GetMany(Func<TEntity, bool> predicate, PagerDto pager)
         {

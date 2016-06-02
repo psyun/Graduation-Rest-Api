@@ -27,7 +27,7 @@ namespace HDO2O.Infranstructure
         /// </summary>
         /// <param name="code"></param>
         /// <param name="description"></param>
-        public ResponseResult(ResponseCodeEnum code = ResponseCodeEnum.SUCCESS, string description = "")
+        public ResponseResult(ResponseCodeEnum code = ResponseCodeEnum.SUCCESS, string description = "请求成功!")
         {
             this.code = code;
             this.description = description;
