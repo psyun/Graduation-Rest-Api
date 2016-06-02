@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace HDO2O.Repository
 {
-    public class BarbershopHairDresserRepository
+    public class BarbershopHairDresserRespository
         : BaseRepository<BarbershopHairDresser, HDDbContext>, IBarbershopHairDresserRespository
     {
-        public BarbershopHairDresserRepository(IDbContextFactory<HDDbContext> dbContextFactory) : base(dbContextFactory)
+        public BarbershopHairDresserRespository(IDbContextFactory<HDDbContext> dbContextFactory) : base(dbContextFactory)
         {
         }
     }

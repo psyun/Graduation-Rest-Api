@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarbershopHairDresserRepository.cs" />
+    <Compile Include="BarbershopHairDresserRespository.cs" />
     <Compile Include="BarbershopRepository.cs" />
     <Compile Include="HairDresserRepository.cs" />
     <Compile Include="MembershipCardRespository.cs" />

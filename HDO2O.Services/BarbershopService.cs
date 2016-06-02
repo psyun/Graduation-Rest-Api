@@ -123,7 +123,9 @@ namespace HDO2O.Services
                     _repoBarbershopHairDresser.Add(new BarbershopHairDresser
                     {
                         BarbershopId = addedEntity.Id,
-                        HairDresserId = ownerHairDresser.Id
+                        HairDresserId = ownerHairDresser.Id,
+                        VerifyState = BarbershopHairDresserVerifyState.Pass,
+                        Type = BarbershopHairDresserType.Owner
                     });
 
                     if (this.Commit() >= 0)
@@ -166,7 +168,7 @@ namespace HDO2O.Services
         }
 
 
-       
+
 
         public ResponseResult Delete(int id)
         {

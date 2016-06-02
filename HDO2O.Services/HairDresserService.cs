@@ -2,6 +2,7 @@
 using HDO2O.Infranstructure;
 using HDO2O.IRepository;
 using HDO2O.IServices;
+using HDO2O.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,17 @@ namespace HDO2O.Services
 
         private IUnitOfWork _unitOfWork;
         private IHairDresserRepository _repoHairDresser;
+        private IBarbershopRepository _repoBarbershop;
         private IBarbershopHairDresserRespository _repoBarbershopHairDresser;
 
         public HairDresserService(IUnitOfWork unitOfWork,
             IHairDresserRepository repoHairDresser,
+            IBarbershopRepository repoBarbershop,
             IBarbershopHairDresserRespository repoBarbershopHairDresser)
         {
             this._unitOfWork = unitOfWork;
             this._repoHairDresser = repoHairDresser;
+            this._repoBarbershop = repoBarbershop;
             this._repoBarbershopHairDresser = repoBarbershopHairDresser;
         }
 
@@ -37,11 +41,6 @@ namespace HDO2O.Services
         }
 
         public Infranstructure.ResponseResult Update(DTO.HairDresserDTO dto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Infranstructure.ResponseResult Delete(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -88,7 +87,25 @@ namespace HDO2O.Services
 
         public ResponseResult Delete(int id)
         {
-            throw new NotImplementedException();
+            var result = new ResponseResult();
+            try
+            {
+                var entity = _repoBarbershopHairDresser.GetById(id);
+                if (entity == null)
+                { throw new RepoException(ResponseCodeEnum.INVALID_MODELSTATE, "入驻信息错误"); }
+                _repoBarbershopHairDresser.Delete(entity);
+                if (this.Commit() >= 0)
+                {
+                    result.code = ResponseCodeEnum.SUCCESS;
+                    result.description = "删除成功";
+                }
+                return result;
+            }
+            catch (RepoException ex) 
+            {
+                return ex.ResponseResult; 
+
+            }
         }
 
         public ResponseResult Delete(string id)
@@ -96,6 +113,70 @@ namespace HDO2O.Services
             throw new NotImplementedException();
         }
 
-       
+
+
+
+        public ResponseResult ApplyToJoin(int barbershopId, string userId)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (_repoBarbershop.GetById(barbershopId) == null)
+                {
+                    throw new RepoException(ResponseCodeEnum.INVALID_MODELSTATE, "店铺的id不能为空");
+                }
+                _repoBarbershopHairDresser.Add(new BarbershopHairDresser
+                {
+                    BarbershopId = barbershopId,
+                    HairDresserId = userId,
+                    VerifyState = BarbershopHairDresserVerifyState.UnVerify,
+                    Type = BarbershopHairDresserType.General
+                });
+                if (this.Commit() >= 0)
+                {
+                    result.code = ResponseCodeEnum.SUCCESS;
+                    result.description = "提交成功，等待管理员审核";
+                }
+
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+                return result;
+            }
+        }
+
+
+        public ResponseResult UpdateHairDressState(int settledId, BarbershopHairDresserVerifyState status)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var entity = _repoBarbershopHairDresser.GetById(settledId);
+                if (entity == null)
+                { throw new RepoException(ResponseCodeEnum.INVALID_MODELSTATE, "入驻信息错误"); }
+                entity.VerifyState = status;
+                _repoBarbershopHairDresser.Update(entity);
+                if (this.Commit() >= 0)
+                {
+                    result.code = ResponseCodeEnum.SUCCESS;
+                    if (status == BarbershopHairDresserVerifyState.Pass)
+                    {
+                        result.description = "审核成功";
+                    }
+                    else
+                    {
+                        result.description = "已拒绝该申请";
+                    }
+                }
+                return result;
+            }
+            catch (RepoException ex) { return ex.ResponseResult; }
+        }
     }
 }
