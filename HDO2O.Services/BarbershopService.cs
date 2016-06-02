@@ -49,6 +49,45 @@ namespace HDO2O.Services
             }
         }
 
+        public ResponseResult GetById(int id)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                result.data = new BarbershopDTO(_repoBarbershop.GetById(id));
+
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+                return result;
+            }
+        }
+
+        public ResponseResult GetById(string id)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                result.data = new BarbershopDTO(_repoBarbershop.GetById(id));
+
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+                return result;
+            }
+        }
         public ResponseResult GetAll()
         {
             var result = new ResponseResult();
@@ -124,6 +163,19 @@ namespace HDO2O.Services
         public int Commit()
         {
             return _unitOfWork.Commit();
+        }
+
+
+       
+
+        public ResponseResult Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResponseResult Delete(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

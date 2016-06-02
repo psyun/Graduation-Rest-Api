@@ -10,24 +10,20 @@ using System.Threading.Tasks;
 
 namespace HDO2O.Services
 {
-    public class HairDresserServices : IHairDresserServices
+    public class HairDresserService : IHairDresserService
     {
 
         private IUnitOfWork _unitOfWork;
         private IHairDresserRepository _repoHairDresser;
         private IBarbershopHairDresserRespository _repoBarbershopHairDresser;
 
-        public HairDresserServices(IUnitOfWork unitOfWork,
+        public HairDresserService(IUnitOfWork unitOfWork,
             IHairDresserRepository repoHairDresser,
             IBarbershopHairDresserRespository repoBarbershopHairDresser)
         {
             this._unitOfWork = unitOfWork;
             this._repoHairDresser = repoHairDresser;
             this._repoBarbershopHairDresser = repoBarbershopHairDresser;
-        }
-        public Infranstructure.ResponseResult GetById(Guid id)
-        {
-            throw new NotImplementedException();
         }
 
         public Infranstructure.ResponseResult GetAll()
@@ -73,5 +69,33 @@ namespace HDO2O.Services
                 return ex.ResponseResult;
             }
         }
+
+
+        public ResponseResult GetById(string id)
+        {
+            throw new NotImplementedException();
+        }
+        public ResponseResult GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public ResponseResult GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResponseResult Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResponseResult Delete(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+       
     }
 }
