@@ -46,11 +46,16 @@ namespace HDO2O.API.Controllers
         //lat lng locationtitle   name
         public IHttpActionResult GetNearby()
         {
+            //TODO :理发店地理位置
             throw new NotImplementedException();
         }
+
+
+        [HttpGet]
+        [Route("getById")]
         public IHttpActionResult GetById()
         {
-            throw new NotImplementedException();
+            return Ok(_servBabershop.GetById(1));
         }
     }
 }

@@ -37,10 +37,12 @@ namespace HDO2O.API.App_Start
 
             #region register service and repository
             builder.RegisterType<HairDresserRepository>().As<IHairDresserRepository>().AsImplementedInterfaces().InstancePerRequest();
-            builder.RegisterType<BarbershopHairDresserRepository>().As<IBarbershopHairDresserRespository>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<BarbershopHairDresserRespository>().As<IBarbershopHairDresserRespository>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<BarbershopRepository>().As<IBarbershopRepository>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<MembershipCardRespository>().As<IMembershipCardRespository>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<BarbershopService>().As<IBarbershopService>().AsImplementedInterfaces().InstancePerRequest();
-            builder.RegisterType<HairDresserServices>().As<IHairDresserServices>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<HairDresserService>().As<IHairDresserService>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<MembershipCardService>().As<IMembershipCardService>().AsImplementedInterfaces().InstancePerRequest();
             #endregion
 
 

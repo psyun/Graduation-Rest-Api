@@ -60,6 +60,7 @@
     <Compile Include="IBarbershopHairDresserRespository.cs" />
     <Compile Include="IBarbershopRepository.cs" />
     <Compile Include="IHairDresserRepository.cs" />
+    <Compile Include="IMembershipCardRespository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
