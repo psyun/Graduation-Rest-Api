@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace HDO2O.IServices
 {
-    public interface IHairDresserServices : IBaseService<HairDresserDTO>
+    public interface IMembershipCardService : IBaseService<MembershipCardDTO>
     {
-        ResponseResult GetHairDresserByBarbershopId(int barbershopId);
+        ResponseResult GetMany(int barbershopId);
     }
 }
