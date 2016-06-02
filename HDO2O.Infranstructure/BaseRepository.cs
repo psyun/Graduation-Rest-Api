@@ -55,9 +55,9 @@ namespace HDO2O.Infranstructure
             var result = _dbSet.Where(predicate);
             return result.AsQueryable();
         }
-        public virtual ResultSet<TEntity> GetMany(Func<TEntity, bool> predicate, PagerDto pager)
+        public virtual PageResponseResult<TEntity> GetMany(Func<TEntity, bool> predicate, PagerDto pager)
         {
-            var result = new ResultSet<TEntity>();
+            var result = new PageResponseResult<TEntity>();
 
             result.pageInfo.total = _dbSet.Where(predicate).Count();
             //TODO:how to order data?

@@ -12,7 +12,7 @@ namespace HDO2O.Infranstructure
         TEntity GetFirst(Func<TEntity, bool> predicate);
         IEnumerable<TEntity> GetAll();
         IQueryable<TEntity> GetMany(Func<TEntity, bool> predicate);
-        ResultSet<TEntity> GetMany(Func<TEntity, bool> predicate, PagerDto pager);
+        PageResponseResult<TEntity> GetMany(Func<TEntity, bool> predicate, PagerDto pager);
         TEntity Add(TEntity entity);
         TEntity Update(TEntity entity);
         void Delete(TEntity entity);
