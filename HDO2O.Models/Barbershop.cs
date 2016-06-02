@@ -31,6 +31,14 @@ namespace HDO2O.Models
         /// 营业执照
         /// </summary>
         public string BusinessLicense { get; set; }
+        /// <summary>
+        /// 序列号,系统随机生成
+        /// </summary>
+        public string SerialNumber { get; set; }
+        /// <summary>
+        /// 折扣
+        /// </summary>
+        public double Discount { get; set; }
 
         /// <summary>
         /// 理发店下的理发师

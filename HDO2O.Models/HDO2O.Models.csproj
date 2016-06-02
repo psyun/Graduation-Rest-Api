@@ -68,6 +68,14 @@
     <Compile Include="Migrations\201606011733245_ChangeIdToInt.Designer.cs">
       <DependentUpon>201606011733245_ChangeIdToInt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606021252265_AddVerifyState.cs" />
+    <Compile Include="Migrations\201606021252265_AddVerifyState.Designer.cs">
+      <DependentUpon>201606021252265_AddVerifyState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606021320469_AddDiscount.cs" />
+    <Compile Include="Migrations\201606021320469_AddDiscount.Designer.cs">
+      <DependentUpon>201606021320469_AddDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="HairDresser.cs" />
     <Compile Include="MyHairDressLibrary.cs" />
@@ -83,6 +91,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606011733245_ChangeIdToInt.resx">
       <DependentUpon>201606011733245_ChangeIdToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606021252265_AddVerifyState.resx">
+      <DependentUpon>201606021252265_AddVerifyState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606021320469_AddDiscount.resx">
+      <DependentUpon>201606021320469_AddDiscount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

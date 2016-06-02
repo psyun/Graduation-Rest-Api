@@ -7,25 +7,19 @@ using System.Threading.Tasks;
 
 namespace HDO2O.DTO
 {
-    public class BarbershopHairDresserDTO:BaseDTO<BarbershopHairDresser>
+    public class BarbershopHairDresserDTO : BaseDTO<BarbershopHairDresser>
     {
         public int Id { get; set; }
         public int BarbershopId { get; set; }
         public string HairDresserId { get; set; }
-        /// <summary>
-        /// 理发师类型
-        /// 1 普通理发师
-        /// 2 理发店Owner
-        /// </summary>
-        public int Type { get; set; }
-
-
+        public BarbershopHairDresserType Type { get; set; }
+        public BarbershopHairDresserVerifyState VerifyState { get; set; }
 
 
         public BarbershopHairDresserDTO() { }
 
 
-        public BarbershopHairDresserDTO(BarbershopHairDresser entity) : base(entity) 
+        public BarbershopHairDresserDTO(BarbershopHairDresser entity) : base(entity)
         {
             this.Id = entity.Id;
             this.BarbershopId = entity.BarbershopId;
