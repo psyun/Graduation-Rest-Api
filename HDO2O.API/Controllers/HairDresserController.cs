@@ -8,11 +8,11 @@ using System.Web.Http;
 
 namespace HDO2O.API.Controllers
 {
-    [RoutePrefix("rest/hairDressers")]
-    public class HairDressersController : ApiController
+    [RoutePrefix("rest/hairDresser")]
+    public class HairDresserController : ApiController
     {
         private IHairDresserServices _serHairDress;
-        public HairDressersController(IHairDresserServices serHairDress) 
+        public HairDresserController(IHairDresserServices serHairDress)
         {
             _serHairDress = serHairDress;
         }
@@ -21,6 +21,11 @@ namespace HDO2O.API.Controllers
         public IHttpActionResult GetMany(int barbershopId)
         {
             return Ok(_serHairDress.GetHairDresserByBarbershopId(barbershopId));
+        }
+
+        public IHttpActionResult ApplyToJoin(int barbershopId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

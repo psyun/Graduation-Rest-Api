@@ -13,11 +13,11 @@ namespace HDO2O.API.Controllers
     public class BarbershopController : ApiController
     {
         private IBarbershopService _servBabershop;
-        
+
         public BarbershopController(IBarbershopService servBarbershop)
         {
             _servBabershop = servBarbershop;
-          
+
         }
         /// <summary>
         /// 
@@ -43,5 +43,14 @@ namespace HDO2O.API.Controllers
             return Ok(_servBabershop.GetAll());
         }
 
+        //lat lng locationtitle   name
+        public IHttpActionResult GetNearby()
+        {
+            throw new NotImplementedException();
+        }
+        public IHttpActionResult GetById()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
