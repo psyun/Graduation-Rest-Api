@@ -40,6 +40,7 @@ namespace HDO2O.API.App_Start
             builder.RegisterType<BarbershopHairDresserRepository>().As<IBarbershopHairDresserRespository>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<BarbershopRepository>().As<IBarbershopRepository>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<BarbershopService>().As<IBarbershopService>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<HairDresserServices>().As<IHairDresserServices>().AsImplementedInterfaces().InstancePerRequest();
             #endregion
 
 

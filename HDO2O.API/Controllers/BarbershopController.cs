@@ -13,9 +13,11 @@ namespace HDO2O.API.Controllers
     public class BarbershopController : ApiController
     {
         private IBarbershopService _servBabershop;
+        
         public BarbershopController(IBarbershopService servBarbershop)
         {
             _servBabershop = servBarbershop;
+          
         }
         /// <summary>
         /// 
@@ -40,5 +42,6 @@ namespace HDO2O.API.Controllers
         {
             return Ok(_servBabershop.GetAll());
         }
+
     }
 }
