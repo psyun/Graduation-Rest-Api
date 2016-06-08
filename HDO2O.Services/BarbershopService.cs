@@ -119,7 +119,7 @@ namespace HDO2O.Services
                 if (ownerHairDresser != null)
                 {
                     var entity = dto.ToEntity();
-                    entity.SerialNumber = GetRandom();
+                    entity.SerialNumber = GetRandom();//序列号
                     var addedEntity = _repoBarbershop.Add(entity);
                     _repoBarbershopHairDresser.Add(new BarbershopHairDresser
                     {
