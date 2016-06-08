@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace HDO2O.API.Controllers
 {
+         [RoutePrefix("rest/follwer")]
     public class FollowerController : ApiController
     {
         //get all

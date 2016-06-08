@@ -10,6 +10,7 @@ using HDO2O.Models;
 
 namespace HDO2O.API.Controllers
 {
+     [RoutePrefix("rest/myHairDressLibrary")]
     public class MyHairDressLibraryController : ApiController
     {
         //get all
@@ -23,7 +24,18 @@ namespace HDO2O.API.Controllers
         }
 
         //fork other hairdreess  
-
+        [HttpPost]
+        [Route("forkOthers")]
+        public IHttpActionResult ForkOthersHairDress() 
+        {
+            return Ok();
+        }
         //delete
+        [HttpDelete]
+        [Route("delete")]
+        public IHttpActionResult DelOthersHairDress() 
+        {
+            return Ok();
+        }
     }
 }
