@@ -119,6 +119,7 @@ namespace HDO2O.Services
                 if (ownerHairDresser != null)
                 {
                     var entity = dto.ToEntity();
+                    entity.SerialNumber = GetRandom();//序列号
                     var addedEntity = _repoBarbershop.Add(entity);
                     _repoBarbershopHairDresser.Add(new BarbershopHairDresser
                     {
@@ -151,7 +152,24 @@ namespace HDO2O.Services
                 return result;
             }
         }
-
+        /// <summary>
+        /// 生成随机序列号 8位
+        /// </summary>
+        /// <returns></returns>
+        private string GetRandom() 
+        {
+            char[] Pattern = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' 
+            , 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+            string result = "";
+            int n = Pattern.Length;
+            System.Random random = new Random(~unchecked((int)DateTime.Now.Ticks));
+            for (int i = 0; i < 8; i++)
+            {
+                int rnd = random.Next(0, n);
+                result += Pattern[rnd];
+            }
+            return result;
+        }
         public ResponseResult Update(BarbershopDTO dto)
         {
             throw new NotImplementedException();

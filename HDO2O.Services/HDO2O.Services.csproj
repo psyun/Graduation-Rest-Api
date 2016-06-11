@@ -58,7 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarbershopService.cs" />
+    <Compile Include="FollowerService.cs" />
     <Compile Include="HairDresserService.cs" />
+    <Compile Include="HairDressLibraryService.cs" />
+    <Compile Include="MyHairDressLibraryService.cs" />
     <Compile Include="MembershipCardService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

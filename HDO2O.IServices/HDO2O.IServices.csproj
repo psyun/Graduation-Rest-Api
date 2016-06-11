@@ -41,8 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBarbershopService.cs" />
+    <Compile Include="IFollowerService.cs" />
     <Compile Include="IHairDresserService.cs" />
+    <Compile Include="IHairDressLibraryService.cs" />
     <Compile Include="IMembershipCardService.cs" />
+    <Compile Include="IMyHairDressLibraryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

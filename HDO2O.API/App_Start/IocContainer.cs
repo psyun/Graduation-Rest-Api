@@ -40,9 +40,17 @@ namespace HDO2O.API.App_Start
             builder.RegisterType<BarbershopHairDresserRespository>().As<IBarbershopHairDresserRespository>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<BarbershopRepository>().As<IBarbershopRepository>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<MembershipCardRespository>().As<IMembershipCardRespository>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<MyHairDressLibraryRepository>().As<IMyHairDressLibraryRepository>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<HairDressLibraryRepository>().As<IHairDressLibraryRepository>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<FollowerRepository>().As<IFollowerRepository>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<BarbershopService>().As<IBarbershopService>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<HairDresserService>().As<IHairDresserService>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<MembershipCardService>().As<IMembershipCardService>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<MyHairDressLibraryService>().As<IMyHairDressLibraryService>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<HairDressLibraryService>().As<IHairDressLibraryService>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<FollowerService>().As<IFollowerService>().AsImplementedInterfaces().InstancePerRequest();
+
+
             #endregion
 
 

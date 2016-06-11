@@ -59,8 +59,11 @@
   <ItemGroup>
     <Compile Include="IBarbershopHairDresserRespository.cs" />
     <Compile Include="IBarbershopRepository.cs" />
+    <Compile Include="IFollowerRepository.cs" />
     <Compile Include="IHairDresserRepository.cs" />
+    <Compile Include="IHairDressLibraryRepository.cs" />
     <Compile Include="IMembershipCardRespository.cs" />
+    <Compile Include="IMyHairDressLibraryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
