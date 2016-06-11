@@ -16,6 +16,7 @@ namespace HDO2O.DTO
         public string LocationTitle { get; set; }
         public string Name { get; set; }
         public string OwnerHairDresserId { get; set; }
+        public int HairDresserCount { get; set; }
 
         public BarbershopDTO()
         {
@@ -30,6 +31,7 @@ namespace HDO2O.DTO
             this.Lng = entity.Lng;
             this.LocationTitle = entity.LocationTitle;
             this.Name = entity.Name;
+            this.HairDresserCount = entity.HairDressers.Count;
         }
         public override Barbershop ToEntity()
         {
