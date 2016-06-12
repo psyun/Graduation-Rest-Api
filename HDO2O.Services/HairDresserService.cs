@@ -72,7 +72,22 @@ namespace HDO2O.Services
 
         public ResponseResult GetById(string id)
         {
-            throw new NotImplementedException();
+            var result = new ResponseResult();
+            try
+            {
+                result.data = new HairDresserDTO(_repoHairDresser.GetById(id));
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+
+                return result;
+            }
         }
         public ResponseResult GetById(Guid id)
         {
@@ -82,7 +97,22 @@ namespace HDO2O.Services
 
         public ResponseResult GetById(int id)
         {
-            throw new NotImplementedException();
+            var result = new ResponseResult();
+            try
+            {
+                result.data = new HairDresserDTO(_repoHairDresser.GetById(id));
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+
+                return result;
+            }
         }
 
         public ResponseResult Delete(int id)
@@ -101,9 +131,9 @@ namespace HDO2O.Services
                 }
                 return result;
             }
-            catch (RepoException ex) 
+            catch (RepoException ex)
             {
-                return ex.ResponseResult; 
+                return ex.ResponseResult;
 
             }
         }

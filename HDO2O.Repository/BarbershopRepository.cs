@@ -24,6 +24,7 @@ namespace HDO2O.Repository
             {
                 throw new RepoException(ResponseCodeEnum.INVALID_MODELSTATE, "地理位置不能为空");
             }
+            entity.SerialNumber = "";
             return base.Add(entity);
         }
         public override Barbershop Update(Barbershop entity)

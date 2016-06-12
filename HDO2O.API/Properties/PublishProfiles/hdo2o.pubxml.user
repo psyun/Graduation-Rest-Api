@@ -32,28 +32,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/HDO2O.API.dll">
-      <publishTime>06/11/2016 23:29:16</publishTime>
+      <publishTime>06/12/2016 14:36:04</publishTime>
     </File>
     <File Include="bin/HDO2O.DTO.dll">
-      <publishTime>06/11/2016 23:29:01</publishTime>
+      <publishTime>06/12/2016 04:18:23</publishTime>
     </File>
     <File Include="bin/HDO2O.Infranstructure.dll">
       <publishTime>06/11/2016 23:29:00</publishTime>
     </File>
     <File Include="bin/HDO2O.IRepository.dll">
-      <publishTime>06/11/2016 23:29:01</publishTime>
+      <publishTime>06/11/2016 23:42:58</publishTime>
     </File>
     <File Include="bin/HDO2O.IServices.dll">
-      <publishTime>06/11/2016 23:29:03</publishTime>
+      <publishTime>06/12/2016 04:18:23</publishTime>
     </File>
     <File Include="bin/HDO2O.Models.dll">
       <publishTime>06/11/2016 23:28:59</publishTime>
     </File>
     <File Include="bin/HDO2O.Repository.dll">
-      <publishTime>06/11/2016 23:29:02</publishTime>
+      <publishTime>06/11/2016 23:42:58</publishTime>
     </File>
     <File Include="bin/HDO2O.Services.dll">
-      <publishTime>06/11/2016 23:29:05</publishTime>
+      <publishTime>06/12/2016 06:33:15</publishTime>
     </File>
     <File Include="bin/HDO2O.Utils.dll">
       <publishTime>06/11/2016 23:28:58</publishTime>

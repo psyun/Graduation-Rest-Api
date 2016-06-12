@@ -1,10 +1,6 @@
 ﻿using HDO2O.DTO;
 using HDO2O.IServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+using HDO2O.Utils;
 using System.Web.Http;
 
 namespace HDO2O.API.Controllers
@@ -44,18 +40,18 @@ namespace HDO2O.API.Controllers
         }
 
         //lat lng locationtitle   name
-        public IHttpActionResult GetNearby()
+        public IHttpActionResult GetNearby(LocationModel sourceLocation, string keywords)
         {
             //TODO :理发店地理位置
-            throw new NotImplementedException();
+            return Ok(_servBabershop.GetNearby(sourceLocation, keywords));
         }
 
 
         [HttpGet]
         [Route("getById")]
-        public IHttpActionResult GetById()
+        public IHttpActionResult GetById(int barbershopId)
         {
-            return Ok(_servBabershop.GetById(1));
+            return Ok(_servBabershop.GetById(barbershopId));
         }
     }
 }

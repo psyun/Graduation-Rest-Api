@@ -9,14 +9,16 @@ namespace HDO2O.DTO
 {
     public class BarbershopDTO : BaseDTO<Barbershop>
     {
-        public string BusinessLicense { get; set; }
-        public int Id { get; set; }
-        public double Lat { get; set; }
-        public double Lng { get; set; }
-        public string LocationTitle { get; set; }
-        public string Name { get; set; }
-        public string OwnerHairDresserId { get; set; }
-        public int HairDresserCount { get; set; }
+        public string businessLicense { get; set; }
+        public int id { get; set; }
+        public double lat { get; set; }
+        public double lng { get; set; }
+        public string locationTitle { get; set; }
+        public string name { get; set; }
+        public string ownerHairDresserId { get; set; }
+        public int hairDresserCount { get; set; }
+        public string thumbnailUrl { get; set; }
+        public double price { get; set; }
 
         public BarbershopDTO()
         {
@@ -25,24 +27,25 @@ namespace HDO2O.DTO
         public BarbershopDTO(Barbershop entity)
             : base(entity)
         {
-            this.BusinessLicense = entity.BusinessLicense;
-            this.Id = entity.Id;
-            this.Lat = entity.Lat;
-            this.Lng = entity.Lng;
-            this.LocationTitle = entity.LocationTitle;
-            this.Name = entity.Name;
-            this.HairDresserCount = entity.HairDressers.Count;
+            this.businessLicense = entity.BusinessLicense;
+            this.id = entity.Id;
+            this.lat = entity.Lat;
+            this.lng = entity.Lng;
+            this.locationTitle = entity.LocationTitle;
+            this.name = entity.Name;
+            this.hairDresserCount = entity.HairDressers.Count;
+            this.thumbnailUrl = "http://hair.2liang.net/d/file/hair/liuhai/2013-08/29cbf8adba53e57a748afa3e0cd359de.jpg";
         }
         public override Barbershop ToEntity()
         {
             return new Barbershop
             {
-                Id = this.Id,
-                BusinessLicense = this.BusinessLicense,
-                Lat = this.Lat,
-                Lng = this.Lng,
-                LocationTitle = this.LocationTitle,
-                Name = this.Name
+                Id = this.id,
+                BusinessLicense = this.businessLicense,
+                Lat = this.lat,
+                Lng = this.lng,
+                LocationTitle = this.locationTitle,
+                Name = this.name
             };
         }
     }

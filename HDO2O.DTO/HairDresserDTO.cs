@@ -9,17 +9,18 @@ namespace HDO2O.DTO
 {
     public class HairDresserDTO : BaseDTO<HairDresser>
     {
-        public string Id { get; set; }
-        public string NickName { get; set; }
+        public string id { get; set; }
+        public string nickName { get; set; }
         /// <summary>
         /// 签名
         /// </summary>
-        public string Sign { get; set; }
+        public string sign { get; set; }
         /// <summary>
         /// 出生日期
         /// </summary>
-        public DateTime? BirthDay { get; set; }
-        public int BarbershopId { get; set; }
+        public DateTime? birthDay { get; set; }
+        public int barbershopId { get; set; }
+        public string thumbnailUrl { get; set; }
 
 
         public HairDresserDTO() { }
@@ -27,10 +28,11 @@ namespace HDO2O.DTO
         public HairDresserDTO(HairDresser entity)
             : base(entity)
         {
-            this.Id = entity.GetId();
-            this.BirthDay = entity.BirthDay;
-            this.NickName = entity.NickName;
-            this.Sign = entity.Sign;
+            this.id = entity.GetId();
+            this.birthDay = entity.BirthDay;
+            this.nickName = entity.NickName;
+            this.sign = entity.Sign;
+            this.thumbnailUrl = "http://hair.2liang.net/d/file/hair/liuhai/2013-08/29cbf8adba53e57a748afa3e0cd359de.jpg";
         }
 
 
@@ -38,9 +40,9 @@ namespace HDO2O.DTO
         {
             return new HairDresser
             {
-                Sign = this.Sign,
-                NickName = this.NickName,
-                BirthDay = this.BirthDay
+                Sign = this.sign,
+                NickName = this.nickName,
+                BirthDay = this.birthDay
             };
         }
     }

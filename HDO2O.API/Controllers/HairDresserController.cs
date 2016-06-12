@@ -13,16 +13,23 @@ namespace HDO2O.API.Controllers
     [RoutePrefix("rest/hairDresser")]
     public class HairDresserController : ApiController
     {
-        private IHairDresserService _serHairDress;
-        public HairDresserController(IHairDresserService serHairDress)
+        private IHairDresserService _servHairDress;
+        public HairDresserController(IHairDresserService servHairDress)
         {
-            _serHairDress = serHairDress;
+            _servHairDress = servHairDress;
         }
+        [HttpGet]
+        [Route("getById")]
+        public IHttpActionResult GetById(string hairDresserId)
+        {
+            return Ok(_servHairDress.GetById(hairDresserId));
+        }
+
         [HttpGet]
         [Route("getMany")]
         public IHttpActionResult GetMany(int barbershopId)
         {
-            return Ok(_serHairDress.GetHairDresserByBarbershopId(barbershopId));
+            return Ok(_servHairDress.GetHairDresserByBarbershopId(barbershopId));
         }
 
         [HttpPost]
@@ -31,7 +38,7 @@ namespace HDO2O.API.Controllers
         public IHttpActionResult ApplyToJoin(int barbershopId)
         {
             string userId = User.Identity.GetUserId();
-            return Ok(_serHairDress.ApplyToJoin(barbershopId, userId));
+            return Ok(_servHairDress.ApplyToJoin(barbershopId, userId));
         }
         [HttpPut]
         [Route("verifyPass")]
@@ -39,7 +46,7 @@ namespace HDO2O.API.Controllers
         public IHttpActionResult VerifyPass(int settledId)
         {
 
-            return Ok(_serHairDress.UpdateHairDressState(settledId, BarbershopHairDresserVerifyState.Pass));
+            return Ok(_servHairDress.UpdateHairDressState(settledId, BarbershopHairDresserVerifyState.Pass));
         }
         [HttpPut]
         [Route("verifyUnPass")]
@@ -47,13 +54,13 @@ namespace HDO2O.API.Controllers
         public IHttpActionResult VerifyUnPass(int settledId)
         {
 
-            return Ok(_serHairDress.UpdateHairDressState(settledId, BarbershopHairDresserVerifyState.UnPass));
+            return Ok(_servHairDress.UpdateHairDressState(settledId, BarbershopHairDresserVerifyState.UnPass));
         }
         [HttpDelete]
         [Route("delete")]
         public IHttpActionResult DelHairDress(int settledId)
         {
-            return Ok(_serHairDress.Delete(settledId));
+            return Ok(_servHairDress.Delete(settledId));
         }
     }
 }

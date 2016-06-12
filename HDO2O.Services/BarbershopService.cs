@@ -8,6 +8,7 @@ using HDO2O.DTO;
 using HDO2O.Models;
 using HDO2O.Infranstructure;
 using HDO2O.IRepository;
+using HDO2O.Utils;
 
 namespace HDO2O.Services
 {
@@ -93,7 +94,7 @@ namespace HDO2O.Services
             var result = new ResponseResult();
             try
             {
-                result.data = _repoBarbershop.GetAll()
+                result.data = _repoBarbershop.GetAll().ToList()
                     .Select(entity => new BarbershopDTO(entity));
 
                 return result;
@@ -115,7 +116,7 @@ namespace HDO2O.Services
             var result = new ResponseResult();
             try
             {
-                var ownerHairDresser = _repoHairDresser.GetById(dto.OwnerHairDresserId);
+                var ownerHairDresser = _repoHairDresser.GetById(dto.ownerHairDresserId);
                 if (ownerHairDresser != null)
                 {
                     var entity = dto.ToEntity();
@@ -156,9 +157,9 @@ namespace HDO2O.Services
         /// 生成随机序列号 8位
         /// </summary>
         /// <returns></returns>
-        private string GetRandom() 
+        private string GetRandom()
         {
-            char[] Pattern = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' 
+            char[] Pattern = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
             , 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
             string result = "";
             int n = Pattern.Length;
@@ -196,6 +197,31 @@ namespace HDO2O.Services
         public ResponseResult Delete(string id)
         {
             throw new NotImplementedException();
+        }
+
+        public ResponseResult GetNearby(LocationModel location, string keywords)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                result.data = _repoBarbershop.GetMany(item => MapUtil.JudgeDistance(new LocationModel()
+                {
+                    lat = item.Lat,
+                    lng = item.Lng
+                }, location) <= 3000 && item.LocationTitle.Contains(keywords))
+                .Select(item => new BarbershopDTO(item));
+
+                return result;
+            }
+            catch (RepoException ex)
+            {
+                return ex.ResponseResult;
+            }
+            catch (Exception ex)
+            {
+                result.SetServerError(ex.Message);
+                return result;
+            }
         }
     }
 }
